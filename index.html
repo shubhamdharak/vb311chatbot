@@ -8,7 +8,7 @@
   --esw-button-left: 20px !important;
   --esw-button-right: auto !important;
 }
-
+ 
 /* 2️⃣ Force FAB container position */
 .embeddedMessagingConversationButton,
 .embeddedMessagingConversationButtonWrapper {
@@ -19,7 +19,7 @@
   position: fixed !important;
   z-index: 9999 !important;
 }
-
+ 
 /* 3️⃣ Ensure iframe follows FAB */
 .agentforce-messaging > .agentforce-messaging-frame {
   top: 80px !important;
@@ -27,25 +27,25 @@
   right: auto !important;
   bottom: auto !important;
 }
-
+ 
 /* Optional styling */
 .chat-fab-content {
   flex-direction: row-reverse !important;
 }
-
+ 
 .chat-fab-text {
   color: #ffffff !important;
 }
 </style>
-
-
+ 
+ 
 </head>
 <body>
 
-    <div style="background-color: rgb(242, 242, 242); height: 50px;">
+     <div style="background-color: rgb(242, 242, 242); height: 50px;">
         <h1 style="text-align: center;">City Of Virginia Beach</h1>
     </div>
- 
+
 <script type='text/javascript'>
     function openChat() {
         // Simple function for custom button click
@@ -61,14 +61,15 @@
       .embedded-messaging > .embeddedMessagingFrame {
         top: 0px !important;
         left: 0px !important;
+        box-shadow: none !important;
+        border: 1px solid !important;
       }
-    `;
+      `;
     document.head.appendChild(style);
   }
-
-
-
  
+ 
+
     function initEmbeddedMessaging() {
       try {
         embeddedservice_bootstrap.settings.language = 'en_US';
