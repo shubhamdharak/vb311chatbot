@@ -1,0 +1,93 @@
+<html>
+<head>
+<style>
+/* 1️⃣ Salesforce-supported positioning variables */
+:root {
+  --esw-button-bottom: auto !important;
+  --esw-button-top: 20px !important;
+  --esw-button-left: 20px !important;
+  --esw-button-right: auto !important;
+}
+
+/* 2️⃣ Force FAB container position */
+.embeddedMessagingConversationButton,
+.embeddedMessagingConversationButtonWrapper {
+  top: 20px !important;
+  left: 20px !important;
+  right: auto !important;
+  bottom: auto !important;
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
+/* 3️⃣ Ensure iframe follows FAB */
+.agentforce-messaging > .agentforce-messaging-frame {
+  top: 80px !important;
+  left: 20px !important;
+  right: auto !important;
+  bottom: auto !important;
+}
+
+/* Optional styling */
+.chat-fab-content {
+  flex-direction: row-reverse !important;
+}
+
+.chat-fab-text {
+  color: #ffffff !important;
+}
+</style>
+
+
+</head>
+<body>
+
+    <h1>City Of Virginia Beach</h1>
+ 
+<script type='text/javascript'>
+    function openChat() {
+        // Simple function for custom button click
+        console.log('Custom chat button clicked');
+    }
+    function injectChatCSS() {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .embedded-messaging > .embeddedMessagingFrame.isMaximized {
+        top: 0px !important;
+        left: 0px !important;
+      }
+      .embedded-messaging > .embeddedMessagingFrame {
+        top: 0px !important;
+        left: 0px !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+
+
+ 
+    function initEmbeddedMessaging() {
+      try {
+        embeddedservice_bootstrap.settings.language = 'en_US';
+        embeddedservice_bootstrap.init(
+          '00Dbb000001NnEF',
+          'GoogleSiteTest',
+          'https://covb--311dev.sandbox.my.site.com/ESWGoogleSiteTest1762150116533',
+          {
+            scrt2URL: 'https://covb--311dev.sandbox.my.salesforce-scrt.com'
+          }
+        );
+        injectChatCSS();
+      } catch (err) {
+        console.error('Error loading Embedded Messaging: ', err);
+      }
+    }
+</script>
+<script
+    type='text/javascript'
+    src='https://covb--311dev.sandbox.my.site.com/ESWGoogleSiteTest1762150116533/assets/js/bootstrap.min.js'
+    onload='initEmbeddedMessaging()'>
+</script>
+</body>
+</html>
